@@ -7,6 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class RepoContainerComponent {
   @Input() repoData: any;
+
+  constructor() {}
   @Input() repos: any[] = [
     {
       name: 'Heroes',

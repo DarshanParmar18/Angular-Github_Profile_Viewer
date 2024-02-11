@@ -15,10 +15,10 @@ export class AppComponent implements OnInit {
 
   loader: boolean;
   ngOnInit() {
-    this.apiService.getUser('darshanparmar18').subscribe((res) => {
+    this.apiService.getUser('johnpapa').subscribe((res) => {
       this.profileData = res;
     });
-    this.apiService.getRepo('darshanparmar18').subscribe((res) => {
+    this.apiService.getRepo('johnpapa').subscribe((res) => {
       this.repoData = res;
     });
   }
