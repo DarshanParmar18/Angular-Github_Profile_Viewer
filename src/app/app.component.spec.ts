@@ -1,10 +1,18 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ApiService } from './services/api.service';
+import { ProfileComponent } from './components/profile/profile.component';
+import { RepoContainerComponent } from './components/repo-container/repo-container.component';
 
 describe('AppComponent', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    declarations: [AppComponent]
-  }));
+  beforeEach(() =>
+    TestBed.configureTestingModule({
+      declarations: [AppComponent, ProfileComponent, RepoContainerComponent],
+      imports: [HttpClientModule],
+      providers: [ApiService],
+    })
+  );
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
@@ -22,6 +30,8 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('fyle-frontend-challenge app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain(
+      'fyle-frontend-challenge app is running!'
+    );
   });
 });
