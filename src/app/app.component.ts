@@ -7,9 +7,19 @@ import { ApiService } from './services/api.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private apiService: ApiService) {}
+  profileData: any;
+  repoData: any;
+  constructor(private apiService: ApiService) {
+    this.loader = true;
+  }
 
+  loader: boolean;
   ngOnInit() {
-    this.apiService.getUser('johnpapa').subscribe(console.log);
+    this.apiService.getUser('darshanparmar18').subscribe((res) => {
+      this.profileData = res;
+    });
+    this.apiService.getRepo('darshanparmar18').subscribe((res) => {
+      this.repoData = res;
+    });
   }
 }

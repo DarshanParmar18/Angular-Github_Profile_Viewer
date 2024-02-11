@@ -6,6 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./repo-container.component.scss'],
 })
 export class RepoContainerComponent {
+  @Input() repoData: any;
   @Input() repos: any[] = [
     {
       name: 'Heroes',

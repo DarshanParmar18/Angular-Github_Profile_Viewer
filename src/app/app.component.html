@@ -1,3 +1,23 @@
-<app-profile></app-profile>
-<app-repo-container></app-repo-container>
-<app-pagination></app-pagination>
+<ng-container>
+  <ng-container
+    *ngIf="loader; else elseBlock"
+    class="flex flex-col items-center justify-center min-h-screen"
+  >
+    <app-profile [profileData]="profileData"></app-profile>
+    <div class="gitLink-container m-8">
+      <a
+        href="{{ profileData.html_url }}"
+        class="flex items-center text-black-500 hover:underline font-bold"
+      >
+        <img src=".//src/assets/link-24.png" alt="Link Icon" class="mr-2" />
+        <span>{{ profileData.html_url }}</span>
+      </a>
+    </div>
+    <app-repo-container [repoData]="repoData"></app-repo-container>
+    <app-pagination></app-pagination>
+  </ng-container>
+  <ng-template #elseBlock>
+    <!-- Content to render if the condition is false -->
+    <img src="../assets/loader.gif" alt="Loading..." class="mx-auto" />
+  </ng-template>
+</ng-container>

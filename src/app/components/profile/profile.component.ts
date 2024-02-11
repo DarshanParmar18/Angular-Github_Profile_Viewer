@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-profile',
@@ -6,8 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent {
-  loader: boolean;
-  constructor() {
-    this.loader = true;
-  }
+  @Input() profileData: any;
+  constructor() {}
 }
