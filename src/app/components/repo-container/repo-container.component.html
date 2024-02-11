@@ -1,0 +1,22 @@
+<div class="container-fluid m-2">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <ng-container *ngFor="let item of repos">
+      <div class="mb-4 repo">
+        <div class="repo-container-card p-3">
+          <h1 class="text-xl font-bold mb-3">{{ item.name }}</h1>
+          <p class="mb-3">
+            {{ item.description }}
+          </p>
+          <div class="flex flex-wrap">
+            <ng-container *ngFor="let language of item.language">
+              <app-primary-btn
+                class="mr-2 mb-2"
+                [content]="language"
+              ></app-primary-btn>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
