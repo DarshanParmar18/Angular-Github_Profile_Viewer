@@ -7,6 +7,7 @@ import { ApiService } from './services/api.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  title: string = 'fyle-frontend-challenge';
   profileData: any = null;
   repoData: any[];
   repo: any[];
