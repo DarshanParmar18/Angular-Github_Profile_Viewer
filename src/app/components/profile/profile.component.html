@@ -2,7 +2,7 @@
   <div class="flex flex-wrap">
     <div class="w-full md:w-1/3">
       <div class="image-section">
-        <img src="" alt="" class="w-full" />
+        <img src="{{ profileData.avatar_url }}" alt="" class="w-full" />
       </div>
     </div>
     <div class="w-full md:w-2/3">
@@ -26,11 +26,12 @@
         <p>{{ profileData.location }}</p>
       </div>
       <span class="py-2">
-        Twitter:
+        Twitter :
         <a
           href="{{ profileData.twitter_username }}"
           class="text-blue-500 hover:underline"
-          >{{ profileData.twitter_username }}</a
+        >
+          {{ profileData.twitter_username }}</a
         >
       </span>
     </div>

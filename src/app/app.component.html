@@ -1,6 +1,6 @@
 <ng-container>
   <ng-container
-    *ngIf="loader; else elseBlock"
+    *ngIf="profileData; else elseBlock"
     class="flex flex-col items-center justify-center min-h-screen"
   >
     <app-profile [profileData]="profileData"></app-profile>
@@ -13,8 +13,24 @@
         <span>{{ profileData.html_url }}</span>
       </a>
     </div>
-    <app-repo-container [repoData]="repoData"></app-repo-container>
-    <app-pagination></app-pagination>
+    <app-repo-container [repoData]="repo"></app-repo-container>
+    <!-- --------------pagination -------------------- -->
+    <div class="pagination m-2 mb-6 w-max mx-auto">
+      <button (click)="prevPage()" [disabled]="currentPage === 1">
+        Previous
+      </button>
+      <ng-container *ngFor="let page of getPageNumbers()">
+        <button
+          class="border-l border-r border-solid border-blue-500"
+          [class.active]="page === currentPage"
+        >
+          {{ page }}
+        </button>
+      </ng-container>
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+        Next
+      </button>
+    </div>
   </ng-container>
   <ng-template #elseBlock>
     <!-- Content to render if the condition is false -->
