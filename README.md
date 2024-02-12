@@ -21,12 +21,21 @@ This Angular application allows users to view GitHub profiles and repositories.
 
 2. Navigate into the project directory:
 
-   cd fyle-internship-challenge-23
+```bash
+cd fyle-internship-challenge-23
+
+```
 
 3. Install dependencies using npm:
 
+   ```bash
    npm i
+
+   ```
 
 4. Start the development server:
 
-   ng s --o
+```bash
+ng s --o
+
+```
