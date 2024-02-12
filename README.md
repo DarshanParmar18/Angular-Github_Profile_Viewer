@@ -14,10 +14,10 @@ This Angular application allows users to view GitHub profiles and repositories.
 
 1. Clone the repository to your local machine:
 
-   ```bash
-   git clone https://github.com/fylein/fyle-internship-challenge-23.git
+```bash
+git clone https://github.com/fylein/fyle-internship-challenge-23.git
 
-   ```
+```
 
 2. Navigate into the project directory:
 
@@ -28,10 +28,10 @@ cd fyle-internship-challenge-23
 
 3. Install dependencies using npm:
 
-   ```bash
-   npm i
+```bash
+npm i
 
-   ```
+```
 
 4. Start the development server:
 
