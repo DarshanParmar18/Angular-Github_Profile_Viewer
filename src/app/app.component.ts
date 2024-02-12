@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from './services/api.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { ApiService } from './services/api.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  @Input() searchTerm: any = '';
+  originalRepoData: any;
   title: string = 'fyle-frontend-challenge';
   profileData: any = null;
   repoData: any[];
@@ -20,16 +22,52 @@ export class AppComponent implements OnInit {
 
   loader: boolean;
   ngOnInit() {
-    this.apiService.getUser('johnpapa').subscribe((res) => {
+    this.loadUserData('darshanparmar18');
+
+    // this.apiService.getUser('johnpapa').subscribe((res) => {
+    //   this.profileData = res;
+    // });
+    // this.apiService.getRepo('johnpapa').subscribe((res: any) => {
+    //   this.repoData = res;
+    //   this.originalRepoData = res.slice();
+    //   this.totalPages = Math.ceil(this.repoData.length / this.pageSize);
+    //   this.updateCards();
+    //   this.loader = true;
+    // });
+  }
+
+  loadUserData(username: string): void {
+    this.apiService.getUser(username).subscribe((res) => {
       this.profileData = res;
     });
-    this.apiService.getRepo('johnpapa').subscribe((res: any) => {
+    this.apiService.getRepo(username).subscribe((res: any) => {
       this.repoData = res;
       this.totalPages = Math.ceil(this.repoData.length / this.pageSize);
       this.updateCards();
       this.loader = true;
     });
   }
+
+  search(): void {
+    if (this.searchTerm) {
+      this.loadUserData(this.searchTerm);
+    }
+  }
+
+  // search(): void {
+  //   // Filter the data based on the search term
+  //   // For example, if `repoData` is an array of repositories, filter it based on the `name` property
+  //   if (this.searchTerm.trim() !== '') {
+  //     this.repoData = this.repoData.filter((repo) =>
+  //       repo.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+  //     );
+  //     // Update pagination or perform other necessary actions
+  //   } else {
+  //     // If the search term is empty, reset the data to the original state
+  //     this.repoData = this.originalRepoData.slice(); // Make sure to have a copy of the original data
+  //     // Update pagination or perform other necessary actions
+  //   }
+  // }
 
   // next page of repo
   nextPage(): void {
