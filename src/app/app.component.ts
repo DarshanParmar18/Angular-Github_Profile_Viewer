@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
 
   loader: boolean;
   ngOnInit() {
-    this.loadUserData('darshanparmar18');
+    this.loadUserData('johnpapa');
 
     // this.apiService.getUser('johnpapa').subscribe((res) => {
     //   this.profileData = res;
