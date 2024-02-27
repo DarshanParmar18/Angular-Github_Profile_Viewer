@@ -9,7 +9,7 @@ import { ApiService } from './services/api.service';
 export class AppComponent implements OnInit {
   @Input() searchTerm: any = '';
   originalRepoData: any;
-  title: string = 'fyle-frontend-challenge';
+  title: string = 'Github repo';
   profileData: any = null;
   repoData: any[];
   repo: any[];
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
 
   loader: boolean;
   ngOnInit() {
-    this.loadUserData('johnpapa');
+    this.loadUserData('darshanparmar18');
 
     // this.apiService.getUser('johnpapa').subscribe((res) => {
     //   this.profileData = res;
@@ -51,6 +51,7 @@ export class AppComponent implements OnInit {
   search(): void {
     if (this.searchTerm) {
       this.loadUserData(this.searchTerm);
+      this.searchTerm = '';
     }
   }
 

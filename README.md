@@ -10,7 +10,7 @@ This Angular application allows users to view GitHub profiles and repositories.
 - Skeleton loader for a better user experience during loading.
 - Responsive design for optimal viewing on various devices.
 
-## Installation
+<!-- ## Installation
 
 1. Clone the repository to your local machine:
 
@@ -40,4 +40,4 @@ npm i
 ```bash
 ng s --o
 
-```
+``` -->
