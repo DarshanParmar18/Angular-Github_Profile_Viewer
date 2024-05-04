@@ -31,25 +31,26 @@
       </a>
     </div>
     <app-repo-container [repoData]="repo"></app-repo-container>
+
     <!-- --------------pagination -------------------- -->
-    <ng-container *ngIf="totalPages > 10">
-      <div class="pagination m-2 mb-6 w-max mx-auto">
-        <button (click)="prevPage()" [disabled]="currentPage === 1">
-          Previous
+    <!-- <ng-container *ngIf="totalPages > 2"> -->
+    <div class="pagination m-2 mb-6 w-max mx-auto">
+      <button (click)="prevPage()" [disabled]="currentPage === 1">
+        Previous
+      </button>
+      <ng-container *ngFor="let page of getPageNumbers()">
+        <button
+          class="border-l border-r border-solid border-blue-500"
+          [class.active]="page === currentPage"
+        >
+          {{ page }}
         </button>
-        <ng-container *ngFor="let page of getPageNumbers()">
-          <button
-            class="border-l border-r border-solid border-blue-500"
-            [class.active]="page === currentPage"
-          >
-            {{ page }}
-          </button>
-        </ng-container>
-        <button (click)="nextPage()" [disabled]="currentPage === totalPages">
-          Next
-        </button>
-      </div>
-    </ng-container>
+      </ng-container>
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+        Next
+      </button>
+    </div>
+    <!-- </ng-container> -->
   </ng-container>
   <ng-template #elseBlock>
     <!-- Content to render if the condition is false -->

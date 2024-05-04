@@ -9,10 +9,9 @@
           </p>
           <div class="flex flex-wrap">
             <!-- <ng-container *ngFor="let language of item.topics"> -->
-            <app-primary-btn
-              class="mr-2 mb-2"
-              [content]="item.language"
-            ></app-primary-btn>
+            <button type="button" class="mr-2 mb-2 btn">
+              {{ item.language }}
+            </button>
             <!-- </ng-container> -->
           </div>
         </div>
